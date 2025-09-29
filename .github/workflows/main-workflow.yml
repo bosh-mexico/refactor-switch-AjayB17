@@ -22,7 +22,7 @@ jobs:
         cmake --build build
       
     - name: run
-      run: build/test-monitor
+      run: build/refactor-switch
 
     - name: collect coverage
       run: gcovr --gcov-exclude=".*test.*" -r . --html --html-details -o coverage.html --print-summary
