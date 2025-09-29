@@ -97,7 +97,7 @@ int main() {
     PaymentFactory factory;
 
     // Simulated user input
-    std::string userInputs[] = {"PayPal", "GooglePay", "CreditCard", "Bitcoin"};
+    const std::string userInputs[] = {"PayPal", "GooglePay", "CreditCard", "Bitcoin"};
 
     for (const auto& input : userInputs) {
         PaymentMode mode = toPaymentMode(input);
