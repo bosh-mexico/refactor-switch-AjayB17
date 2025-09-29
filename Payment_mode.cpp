@@ -28,14 +28,14 @@ PaymentMode toPaymentMode(const string& method) {
 
 // Base Payment class (abstract)
 class Payment {
-public:
+ public:
     virtual ~Payment() = default;
     virtual void process(double amount) const = 0;
 };
 
 // PayPal Payment
 class PayPalPayment : public Payment {
-public:
+ public:
     void process(double amount) const override {
         cout << "Processing PayPal payment of $" << amount << endl;
     }
@@ -43,7 +43,7 @@ public:
 
 // GooglePay Payment
 class GooglePayPayment : public Payment {
-public:
+ public:
     void process(double amount) const override {
         cout << "Processing GooglePay payment of $" << amount << endl;
     }
@@ -51,7 +51,7 @@ public:
 
 // Credit Card Payment
 class CreditCardPayment : public Payment {
-public:
+ public:
     void process(double amount) const override {
         cout << "Processing Credit Card payment of $" << amount << endl;
     }
@@ -59,7 +59,7 @@ public:
 
 // Payment Factory
 class PaymentFactory {
-public:
+ public:
     using Creator = function<unique_ptr<Payment>()>;
 
     PaymentFactory() {
@@ -73,10 +73,10 @@ public:
         if (it != registry.end()) {
             return it->second();
         }
-        return nullptr; // Unknown payment mode
+        return nullptr;  // Unknown payment mode
     }
 
-private:
+ private:
     unordered_map<PaymentMode, Creator> registry;
 };
 
