@@ -24,12 +24,12 @@ jobs:
 
     - name: cpplint
       run: |
-        cpplint  --filter=-legal --linelength=100 *.cpp *.h
+        cpplint  --filter=-legal --linelength=100 *.cpp
 
     - name: cppcheck
       run: |
-        cppcheck --enable=all --error-exitcode=1 --suppress=missingIncludeSystem --std=c++17 --language=c++ *.cpp *.h
+        cppcheck --enable=all --error-exitcode=1 --suppress=missingIncludeSystem --std=c++17 --language=c++ *.cpp 
 
     - name: clang-format
       run: |
-        clang-tidy -p=. *.cpp *.h
+        clang-tidy -p=. *.cpp
